@@ -17,7 +17,6 @@
 
 	<body>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,51 +27,64 @@
         body {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            height: 100vh; 
             margin: 0;
-            font-family: 'Times New Roman', serif;
+            font-family: "Times New Roman", serif;
+            background-color: #f0f0f0; /* Light gray background */
         }
-        #countdown {
+        .timer {
             color: red;
             font-size: 34px;
         }
-        #message {
+        .message {
             color: black;
+            font-size: 34px;
             margin-top: 10px;
-            font-size: 24px;
         }
     </style>
 </head>
 <body>
 
-<div id="countdown">24:00:00</div>
-<div id="message">Hey Alvina. Time is ticking.</div>
+    <div class="timer" id="countdown">24:00:00</div>
+    <div class="message">hey alvina. time is ticking.</div>
 
-<script>
-    const countdownElement = document.getElementById('countdown');
-    let timeLeft = 24 * 60 * 60; // 24 hours in seconds
+    <script>
+        // Set the countdown duration (in seconds)
+        const countdownDuration = 24 * 60 * 60; // 24 hours
 
-    function updateCountdown() {
-        const hours = Math.floor(timeLeft / 3600);
-        const minutes = Math.floor((timeLeft % 3600) / 60);
-        const seconds = timeLeft % 60;
+        // Get the target time in the future
+        const targetTime = Math.floor(Date.now() / 1000) + countdownDuration;
 
-        countdownElement.textContent = 
-            String(hours).padStart(2, '0') + ':' + 
-            String(minutes).padStart(2, '0') + ':' + 
-            String(seconds).padStart(2, '0');
+        function updateCountdown() {
+            const now = Math.floor(Date.now() / 1000);
+            const remainingTime = targetTime - now;
 
-        if (timeLeft > 0) {
-            timeLeft--;
-        } else {
-            clearInterval(timer);
+            // Calculate hours, minutes, and seconds
+            const hours = Math.floor((remainingTime % (24 * 3600)) / 3600);
+            const minutes = Math.floor((remainingTime % 3600) / 60);
+            const seconds = remainingTime % 60;
+
+            // Format time as HH:MM:SS
+            const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            // Set the countdown display
+            document.getElementById('countdown').textContent = formattedTime;
+
+            // If the countdown timer reaches zero, set it to zero
+            if (remainingTime <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('countdown').textContent = '00:00:00';
+            }
         }
-    }
 
-    const timer = setInterval(updateCountdown, 1000);
-</script>
+        // Update the countdown every second
+        const timerInterval = setInterval(updateCountdown, 1000);
+        
+        // Initial call to display the timer immediately
+        updateCountdown();
+    </script>
 
 </body>
 </html>
