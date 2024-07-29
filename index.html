@@ -22,69 +22,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24 Hour Countdown Timer</title>
+    <title>Countdown Timer</title>
     <style>
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh; 
+            height: 100vh;
             margin: 0;
-            font-family: "Times New Roman", serif;
-            background-color: #f0f0f0; /* Light gray background */
+            background-color: #f2f2f2; /* Optional: Set a background color */
         }
-        .timer {
-            color: red;
-            font-size: 34px;
-        }
-        .message {
-            color: black;
-            font-size: 34px;
-            margin-top: 10px;
+        .text {
+            font-family: 'Times New Roman', Times, serif;
+            color: #000000;
+            margin-top: 20px;
+            font-size: 20px; /* Optional: Set the font size */
         }
     </style>
 </head>
 <body>
 
-    <div class="timer" id="countdown">24:00:00</div>
-    <div class="message">hey alvina. time is ticking.</div>
-
-    <script>
-        // Set the countdown duration (in seconds)
-        const countdownDuration = 24 * 60 * 60; // 24 hours
-
-        // Get the target time in the future
-        const targetTime = Math.floor(Date.now() / 1000) + countdownDuration;
-
-        function updateCountdown() {
-            const now = Math.floor(Date.now() / 1000);
-            const remainingTime = targetTime - now;
-
-            // Calculate hours, minutes, and seconds
-            const hours = Math.floor((remainingTime % (24 * 3600)) / 3600);
-            const minutes = Math.floor((remainingTime % 3600) / 60);
-            const seconds = remainingTime % 60;
-
-            // Format time as HH:MM:SS
-            const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-
-            // Set the countdown display
-            document.getElementById('countdown').textContent = formattedTime;
-
-            // If the countdown timer reaches zero, set it to zero
-            if (remainingTime <= 0) {
-                clearInterval(timerInterval);
-                document.getElementById('countdown').textContent = '00:00:00';
-            }
-        }
-
-        // Update the countdown every second
-        const timerInterval = setInterval(updateCountdown, 1000);
-        
-        // Initial call to display the timer immediately
-        updateCountdown();
-    </script>
+    <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+    <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-style="columns" 
+       data-timezone="America/Los_Angeles" data-textcolor="#000000" data-date="2024-07-31 14:22" 
+       data-digitscolor="#ff0000" data-unitscolor="#ff0000">
+    </a>
+    
+    <div class="text">Hey Alvina. Time is ticking.</div>
 
 </body>
 </html>
