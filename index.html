@@ -2,7 +2,7 @@
 <html>
 	<head>
 
-		<title>The title for the browser's tab bar goes here</title>
+		<title>alvinafiles</title>
 
 		<!--Stop the browser from automatically zooming out and making the text tiny on mobile devices. -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,8 +19,68 @@
 
 
 
-		Your page content goes here.
+		hey alvina. ill give you two days to surrender and stop being a dick head
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: flex-end; /* Align to the right */
+            align-items: center; /* Aligns vertically to the center */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0;
+            background-color: #f0f0f0; /* Light background for contrast */
+            font-family: 'Roboto', sans-serif; /* Use the Roboto font */
+        }
+        .countdown {
+            color: red; /* Red color for the timer */
+            font-size: 34px; /* Font size of 34 pixels */
+            font-weight: bold; /* Bold text */
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown" id="countdownTimer">Loading...</div>
 
+    <script>
+        // Set the countdown time (2 days in milliseconds)
+        const countdownDuration = 2 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
+        let endDate = new Date().getTime() + countdownDuration;
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = endDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % 1000) / 1000);
+
+            // Display the result in the countdown element
+            document.getElementById("countdownTimer").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            // If the countdown is finished, reset the timer
+            if (distance < 0) {
+                // Reset the end date for an infinite loop
+                endDate = new Date().getTime() + countdownDuration;
+            }
+        }
+
+        // Update the timer every second
+        setInterval(updateTimer, 1000);
+        updateTimer(); // Initial call to display timer immediately
+    </script>
+</body>
+</html>
+
+		once you're ready to come foward. direct message me. - ava kris tyson 
 
 
 		<!--Link in the JQuery framework. (Bootstrap requires this.) -->
