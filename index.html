@@ -22,35 +22,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
+    <title></title>
+    <script src="https://cdn.logwork.com/widget/countdown.js"></script>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f2f2f2; /* Optional: Set a background color */
-        }
-        .text {
+        #footer-text {
+            text-align: center;
             font-family: 'Times New Roman', Times, serif;
-            color: #000000;
-            margin-top: 20px;
-            font-size: 20px; /* Optional: Set the font size */
+            font-size: small;
+            margin-top: 20px; /* Add some space above the text */
         }
     </style>
 </head>
 <body>
-
-    <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-    <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-style="columns" 
-       data-timezone="America/Los_Angeles" data-textcolor="#000000" data-date="2024-07-31 14:22" 
-       data-digitscolor="#ff0000" data-unitscolor="#ff0000">
-    </a>
+    <h1></h1>
+    <!-- Other content can go here if needed -->
     
-    <div class="text">Hey Alvina. Time is ticking.</div>
+    <!-- Countdown Timer at the end of the body -->
+    <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-style="columns" data-timezone="America/Los_Angeles" data-textcolor="#000000" data-date="2024-07-31 14:22" data-digitscolor="#ff0000" data-unitscolor="#ff0000">alvina logs </a>
 
+    <!-- Footer text -->
+    <div id="footer-text">
+        hey alvina. time is ticking. goodbye.
+    </div>
 </body>
 </html>
 
